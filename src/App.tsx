@@ -1,10 +1,9 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import "./App.scss";
-import { Home } from "./views/Home";
-import { Money } from "./views/Money";
-import { Statistics } from "./views/Statistics";
-import { Labels } from "./views/Labels";
-import { NewTag } from "./views/NewTag";
+import { Home } from "views/Home";
+import { Money } from "views/Money";
+import { Statistics } from "views/Statistics";
+import { Labels } from "views/Labels";
+import { NewTag } from "views/NewTag";
 
 function App() {
   return (
