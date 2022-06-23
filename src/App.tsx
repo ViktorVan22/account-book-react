@@ -1,5 +1,5 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 import { Home } from "./views/Home";
 import { Money } from "./views/Money";
 import { Statistics } from "./views/Statistics";
