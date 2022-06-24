@@ -1,3 +1,6 @@
+import { Icon } from "components/Icon";
+import "styles/views/money/keyboard.scss";
+
 const KeyboardSection = () => {
   return (
     <div className="keyboard">
@@ -15,8 +18,12 @@ const KeyboardSection = () => {
       <button className="minusSVG">-</button>
       <button>.</button>
       <button>0</button>
-      <button className="backspaceSVG">backspace</button>
-      <button className="checkSVG">check/submit</button>
+      <button className="backspaceSVG">
+        <Icon name="deleteBackspace" />
+      </button>
+      <button className="checkSVG">
+        <Icon name="check" />
+      </button>
     </div>
   );
 };

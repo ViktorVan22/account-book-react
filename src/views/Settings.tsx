@@ -1,5 +1,36 @@
+import "styles/views/settings.scss";
+
 const Settings = () => {
-  return <div>Settings.tsx</div>;
+  return (
+    <div className="settings">
+      你好
+      <hr />
+      你好
+      <hr />
+      你好
+      <hr />
+      你好
+      <hr />
+      你好
+      <hr />
+      你好
+      <hr />
+      你好
+      <hr />
+      你好
+      <hr />
+      你好
+      <hr />
+      你好
+      <hr />
+      你好
+      <hr />
+      你好
+      <hr />
+      你好
+      <hr />
+    </div>
+  );
 };
 
 export { Settings };

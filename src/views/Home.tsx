@@ -1,10 +1,10 @@
 import { Icon } from "components/Icon";
-import { Layout } from "components/Layout";
+import { LayoutWithNav } from "components/LayoutWithNav";
 import "styles/views/home.scss";
 
 const Home = () => {
   return (
-    <Layout>
+    <LayoutWithNav>
       <header className="homeHeader">本月</header>
       <aside className="homeAside">
         <ul>
@@ -51,7 +51,7 @@ const Home = () => {
           </ul>
         </div>
       </main>
-    </Layout>
+    </LayoutWithNav>
   );
 };
 

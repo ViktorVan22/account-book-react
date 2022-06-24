@@ -1,0 +1,17 @@
+main.moneyMain > ul.tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 41vh;
+  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  > li {
+    width: 25%;
+    height: 85px;
+    margin: 8px 0;
+  }
+}

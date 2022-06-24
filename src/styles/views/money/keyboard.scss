@@ -1,0 +1,29 @@
+footer.moneyFooter > div.keyboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  > button {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 23%;
+    height: 75px;
+    margin: 2px 2px;
+    > svg {
+      width: 55px;
+      height: 55px;
+    }
+    &:nth-child(4) {
+      background: #fa7878;
+    }
+    &:nth-child(8) {
+      background: #f5e893;
+    }
+    &:nth-child(12) {
+      background: #f5e893;
+    }
+    &:nth-child(16) {
+      background: #99daff;
+    }
+  }
+}

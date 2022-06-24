@@ -1,8 +1,10 @@
+import "styles/views/money/category.scss";
+
 const CategorySection = () => {
   return (
     <ul className="category">
-      <span>支出</span>
-      <span>收入</span>
+      <li>支出</li>
+      <li>收入</li>
     </ul>
   );
 };

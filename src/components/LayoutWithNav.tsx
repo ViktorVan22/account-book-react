@@ -5,7 +5,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Layout: React.FunctionComponent<Props> = props => {
+const LayoutWithNav: React.FunctionComponent<Props> = props => {
   return (
     <div className="my-layout">
       <main>{props.children}</main>
@@ -16,4 +16,4 @@ const Layout: React.FunctionComponent<Props> = props => {
   );
 };
 
-export { Layout };
+export { LayoutWithNav };

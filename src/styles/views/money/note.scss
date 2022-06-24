@@ -1,0 +1,17 @@
+footer.moneyFooter > div.note {
+  $writeNoteWidth: 70%;
+  border: 1px solid black;
+  margin: 8px 12px;
+  display: flex;
+  border-radius: 10px;
+  > input {
+    border: none;
+    background: inherit;
+  }
+  > input.writeNote {
+    width: $writeNoteWidth;
+  }
+  > input.amount {
+    width: calc(100% - $writeNoteWidth);
+  }
+}

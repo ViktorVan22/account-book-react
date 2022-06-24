@@ -6,8 +6,8 @@ import { TopSection } from "./money/TopSection";
 
 const Money = () => {
   return (
-    <div>
-      <header className="moneyTop">
+    <div className="money-layout">
+      <header className="moneyHeader">
         <TopSection />
       </header>
       <main className="moneyMain">
