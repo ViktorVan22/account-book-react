@@ -22,6 +22,9 @@
         > span {
           margin-top: 3px;
         }
+        > * {
+          pointer-events: none; // 阻止点击事件传播
+        }
       }
     }
   }
