@@ -5,7 +5,6 @@ import { Chart } from "views/Chart";
 import { Labels } from "views/Labels";
 import { NewTag } from "views/NewTag";
 import { NoMatch } from "views/NoMatch";
-import { Settings } from "views/Settings";
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
         <Route path="/chart" element={<Chart />} />
         <Route path="/labels" element={<Labels />} />
         <Route path="/newTag" element={<NewTag />} />
-        <Route path="/settings" element={<Settings />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </BrowserRouter>

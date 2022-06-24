@@ -5,10 +5,9 @@ import { Icon } from "./Icon";
 const Nav = () => {
   let navigate = useNavigate();
   const onClick = (e: React.MouseEvent) => {
-    // console.log(e.currentTarget.className);
     switch (e.currentTarget.className) {
-      case "navToSet":
-        navigate("/settings");
+      case "navToLabels":
+        navigate("/labels");
         break;
       case "navToMoney":
         navigate("/money");
@@ -21,9 +20,9 @@ const Nav = () => {
 
   return (
     <ul>
-      <li className="navToSet" onClick={onClick}>
-        <Icon name="settings" />
-        <span>设置</span>
+      <li className="navToLabels" onClick={onClick}>
+        <Icon name="labels" />
+        <span>标签</span>
       </li>
       <li className="navToMoney" onClick={onClick}>
         <Icon name="circleFilledPlus" />
