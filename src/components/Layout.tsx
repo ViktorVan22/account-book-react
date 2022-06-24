@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { Nav } from "./Nav";
 import "styles/layout.scss";
 
