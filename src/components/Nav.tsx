@@ -4,11 +4,17 @@ const Nav = () => {
   return (
     <ul>
       <li>
-        <Icon />
+        <Icon name="settings" />
         <span>设置</span>
       </li>
-      <li>记一笔</li>
-      <li>统计</li>
+      <li>
+        <Icon name="circleFilledPlus" />
+        <span>记一笔</span>
+      </li>
+      <li>
+        <Icon name="chart" />
+        <span>统计</span>
+      </li>
     </ul>
   );
 };
