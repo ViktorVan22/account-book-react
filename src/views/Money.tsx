@@ -1,5 +1,6 @@
-import { Icon } from "components/Icon";
 import React from "react";
+import { Icon } from "components/Icon";
+import { Tag } from "components/Tag";
 import { useNavigate } from "react-router-dom";
 
 const Money = () => {
@@ -15,10 +16,10 @@ const Money = () => {
       </header>
       <main className="tagList">
         <ul>
-          <li>衣</li>
-          <li>食</li>
-          <li>住</li>
-          <li>行</li>
+          <Tag name="dining" tagName="餐饮" />
+          <Tag name="hangout" tagName="出行" />
+          <Tag name="motel" tagName="住宿" />
+          <Tag name="shopping" tagName="购物" />
         </ul>
       </main>
       <footer className="board">
