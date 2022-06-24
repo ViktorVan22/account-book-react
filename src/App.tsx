@@ -8,19 +8,17 @@ import { NoMatch } from "views/NoMatch";
 
 function App() {
   return (
-    <div className="App">
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" replace />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/money" element={<Money />} />
-          <Route path="/statistics" element={<Statistics />} />
-          <Route path="/labels" element={<Labels />} />
-          <Route path="/newTag" element={<NewTag />} />
-          <Route path="*" element={<NoMatch />} />
-        </Routes>
-      </HashRouter>
-    </div>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" replace />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/money" element={<Money />} />
+        <Route path="/statistics" element={<Statistics />} />
+        <Route path="/labels" element={<Labels />} />
+        <Route path="/newTag" element={<NewTag />} />
+        <Route path="*" element={<NoMatch />} />
+      </Routes>
+    </HashRouter>
   );
 }
 

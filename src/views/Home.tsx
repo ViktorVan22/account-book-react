@@ -1,5 +1,7 @@
+import { Layout } from "components/Layout";
+
 const Home = () => {
-  return <div>Home.tsx</div>;
+  return <Layout>Home.tsx</Layout>;
 };
 
 export { Home };

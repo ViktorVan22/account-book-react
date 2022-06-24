@@ -1,0 +1,21 @@
+.my-layout {
+  min-height: 100vh;
+  background: pink;
+  flex-direction: column;
+  display: flex;
+  main {
+    flex-grow: 1;
+  }
+  footer {
+    background: #fff;
+    line-height: 24px;
+    > ul {
+      display: flex;
+      > li {
+        width: 33.3333%;
+        border: 1px solid grey;
+        text-align: center;
+      }
+    }
+  }
+}
