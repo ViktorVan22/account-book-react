@@ -7,14 +7,14 @@ import { TopSection } from "./money/TopSection";
 const Money = () => {
   return (
     <div>
-      <header className="headerOption">
+      <header className="moneyTop">
         <TopSection />
       </header>
-      <main className="tagList">
+      <main className="moneyMain">
         <CategorySection />
         <TagsSection />
       </main>
-      <footer className="board">
+      <footer className="moneyFooter">
         <NoteSection />
         <KeyboardSection />
       </footer>

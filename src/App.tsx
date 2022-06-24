@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Home } from "views/Home";
 import { Money } from "views/Money";
 import { Chart } from "views/Chart";
@@ -9,7 +9,7 @@ import { Settings } from "views/Settings";
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
@@ -20,7 +20,7 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

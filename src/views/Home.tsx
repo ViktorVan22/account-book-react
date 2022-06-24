@@ -5,8 +5,8 @@ import "styles/views/home.scss";
 const Home = () => {
   return (
     <Layout>
-      <header>本月</header>
-      <aside>
+      <header className="homeHeader">本月</header>
+      <aside className="homeAside">
         <ul>
           <li>
             <span>￥153</span>
