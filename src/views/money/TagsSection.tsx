@@ -9,6 +9,23 @@ const TagsSection = () => {
       <Tag name="motel" tagName="住宿" />
       <Tag name="shopping" tagName="购物" />
       <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
+      <Tag name="snack" tagName="零食" />
     </ul>
   );
 };
