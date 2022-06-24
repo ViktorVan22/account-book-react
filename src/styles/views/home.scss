@@ -1,0 +1,57 @@
+header {
+  font-size: 30px;
+  text-align: center;
+  margin: 30px 30px 10px 30px;
+  padding: 30px;
+}
+aside {
+  > ul {
+    display: flex;
+    justify-content: space-around;
+    > li {
+      border: 2px solid black;
+      width: 40%;
+      text-align: center;
+      height: 75px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 20px;
+      background: #fff;
+      > span {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+.records {
+  //   border: 2px solid black;
+  margin: 20px 15px 0;
+  > .date {
+    > span {
+      margin-left: 20px;
+    }
+    border: 2px solid black;
+    border-radius: 30px;
+    background: #fff;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    > ul {
+      margin: 6px 0;
+      > li {
+        border: 1px solid red;
+        padding: 0 0 6px 0;
+        display: flex;
+        > .icon {
+          width: 65px;
+          height: 65px;
+        }
+
+        > span {
+          border: 1px solid purple;
+          width: 25%;
+        }
+      }
+    }
+  }
+}
