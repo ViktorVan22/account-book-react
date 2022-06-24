@@ -1,11 +1,11 @@
-// // import chart from "icons/chart.svg";
-// // import plus from "icons/circleFilledPlus.svg";
-// import settings from "icons/settings.svg";
+import x from "icons/settings.svg";
+import "styles/components/icon.scss";
 
+console.log(x);
 const Icon = () => {
   return (
-    <svg className="settings">
-      <use xlinkHref="icons/settings.svg" />
+    <svg className="icon">
+      <use xlinkHref="#settings" />
     </svg>
   );
 };

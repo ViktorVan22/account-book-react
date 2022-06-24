@@ -1,5 +1,5 @@
 import { Nav } from "./Nav";
-import "styles/layout.scss";
+import "styles/components/layout.scss";
 
 interface Props {
   children: React.ReactNode;
