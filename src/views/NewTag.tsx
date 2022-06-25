@@ -1,11 +1,18 @@
 import { Icon } from "components/Icon";
+import { useNavigate } from "react-router-dom";
 import "styles/views/newTag.scss";
 
 const NewTag = () => {
+  const navigate = useNavigate();
   return (
     <div className="newTag-layout">
       <header className="newTagHeader">
-        <Icon name="cancel" />
+        <Icon
+          name="cancel"
+          onClick={() => {
+            navigate("/labels");
+          }}
+        />
         <span>新增自定义分类</span>
         <Icon name="check" />
       </header>

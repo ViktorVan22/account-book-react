@@ -12,6 +12,7 @@ footer.moneyFooter > div.keyboard {
     > svg {
       width: 55px;
       height: 55px;
+      pointer-events: none;
     }
     &:nth-child(4) {
       background: #fa7878;

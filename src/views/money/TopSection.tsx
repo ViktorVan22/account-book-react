@@ -4,12 +4,13 @@ import "styles/views/money/top.scss";
 
 const TopSection = () => {
   const navigate = useNavigate();
-  const onClickCancel = (e: React.MouseEvent) => {
-    console.log(e.currentTarget);
-    navigate("/home", { replace: true });
-  };
+
   return (
-    <div onClick={onClickCancel}>
+    <div
+      onClick={() => {
+        navigate("/home", { replace: true });
+      }}
+    >
       <Icon name="cancel" />
     </div>
   );
