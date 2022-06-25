@@ -1,10 +1,23 @@
+import { useState } from "react";
 import { CategorySection } from "./money/CategorySection";
 import { KeyboardSection } from "./money/KeyboardSection";
 import { NoteSection } from "./money/NoteSection";
 import { TagsSection } from "./money/TagsSection";
 import { TopSection } from "./money/TopSection";
 
+const defaultFormData = {
+  note: "",
+  amount: 0,
+};
+
 const Money = () => {
+  const [formData, setFormData] = useState(defaultFormData);
+  const onChange = (obj: Partial<typeof formData>) => {
+    setFormData({
+      ...formData,
+      ...obj,
+    });
+  };
   return (
     <div className="money-layout">
       <header className="moneyHeader">
@@ -15,7 +28,12 @@ const Money = () => {
         <TagsSection />
       </main>
       <footer className="moneyFooter">
-        <NoteSection />
+        <NoteSection
+          note={formData.note}
+          onNoteChange={note => onChange({ note })}
+          amount={formData.amount}
+          onAmountChange={amount => onChange({ amount })}
+        />
         <KeyboardSection />
       </footer>
     </div>

@@ -4,7 +4,6 @@ const generateOutput = (e: React.MouseEvent) => {
   if (!text) {
     text = target.className;
   }
-  console.log(text);
   switch (text) {
     case "1":
     case "2":
@@ -22,6 +21,7 @@ const generateOutput = (e: React.MouseEvent) => {
     case "+":
     case "-":
     case "date":
+      break;
     default:
       break;
   }
