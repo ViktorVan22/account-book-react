@@ -1,0 +1,63 @@
+div.newTag-layout > header.newTagHeader {
+  margin: 8px 4px;
+  display: flex;
+  justify-content: space-between;
+  > span {
+    margin-top: 8px;
+    font-size: 22px;
+  }
+}
+
+div.newTag-layout > main.newTagMain {
+  div.option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    > span {
+      border: 1px solid black;
+      width: 25%;
+      text-align: center;
+      font-size: 18px;
+      &:first-child {
+        border-radius: 10px 0 0 10px;
+        border-right: none;
+      }
+      &:last-child {
+        border-radius: 0 10px 10px 0;
+      }
+    }
+  }
+
+  div.editTag {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    > div.chosenIcon {
+      border: 1px solid red;
+    }
+  }
+
+  ul.availableIcons {
+    border: 1px solid black;
+    margin: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    > li {
+      border: 1px solid red;
+      width: 25%;
+      height: 75px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+ul.availableIcons {
+  max-height: 70vh;
+  overflow-y: scroll;
+  overflow-x: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
