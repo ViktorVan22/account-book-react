@@ -1,10 +1,8 @@
-const generateOutput = (e: React.MouseEvent) => {
-  const target = e.target as HTMLElement;
-  let text = target.textContent;
-  if (!text) {
-    text = target.className;
-  }
+const generateOutput = (text: string, output = "0") => {
+  let numbers: number[] = [];
+  console.log("numbers: " + numbers);
   switch (text) {
+    case "0":
     case "1":
     case "2":
     case "3":
@@ -14,16 +12,35 @@ const generateOutput = (e: React.MouseEvent) => {
     case "7":
     case "8":
     case "9":
-    case "0":
-    case ".":
+      if (output === "0") {
+        return text;
+      } else {
+        return output + text;
+      }
     case "backspace":
-    case "check":
+      if (output.length === 1) {
+        return "";
+      } else {
+        return output.slice(0, -1);
+      }
+    case ".":
+      //已经存在小数点了
+      if (output.indexOf(".") >= 0) {
+        return output;
+      }
+      return output + ".";
     case "+":
     case "-":
-    case "date":
-      break;
+      numbers.push(parseFloat(output));
+      console.log(numbers);
+      if (numbers.length === 1) {
+        numbers.push(parseFloat(output.split(text)[1]));
+      }
+      return output + text;
+    case "清空":
+      return "";
     default:
-      break;
+      return "";
   }
 };
 export { generateOutput };

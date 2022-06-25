@@ -4,8 +4,7 @@ import "styles/views/money/note.scss";
 type Props = {
   note: string;
   onNoteChange: (note: string) => void;
-  amount: number;
-  onAmountChange: (amount: number) => void;
+  amount: string;
 };
 
 const NoteSection: React.FunctionComponent<Props> = props => {
@@ -13,11 +12,6 @@ const NoteSection: React.FunctionComponent<Props> = props => {
     // console.log(e.target.value);
     props.onNoteChange(e.target.value);
   };
-
-  const onAmountChange: React.ChangeEventHandler<HTMLInputElement> = e => {
-    console.log(e);
-  };
-
   return (
     <div className="note">
       <Icon name="pencil" />
@@ -28,13 +22,8 @@ const NoteSection: React.FunctionComponent<Props> = props => {
         value={props.note}
         onChange={onNoteChange}
       />
-      <input
-        className="amount"
-        type="text"
-        placeholder="￥0"
-        value={props.amount}
-        onChange={onAmountChange}
-      />
+      {/* 这个应该是非受控组件，用户不能直接从这里输入数额，而是要通过与键盘的互动才能在这里显示数值 */}
+      <div className="amount">￥{props.amount}</div>
     </div>
   );
 };

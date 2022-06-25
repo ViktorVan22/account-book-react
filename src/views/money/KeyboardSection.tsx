@@ -1,15 +1,61 @@
 import { Icon } from "components/Icon";
-import React from "react";
+import React, { useState } from "react";
 import "styles/views/money/keyboard.scss";
 import { generateOutput } from "./keyboard/generateOutput";
 
-const KeyboardSection = () => {
+type Props = {
+  amount: string;
+  onChange: (amount: string) => void;
+  onOk?: () => void;
+};
+
+const KeyboardSection: React.FunctionComponent<Props> = props => {
+  const [output, _setOutput] = useState(props.amount);
+  const setOutput = (output: string) => {
+    let newOutput: string;
+    if (output.length > 15) {
+      newOutput = output.slice(0, 15);
+    } else if (output.length === 0) {
+      newOutput = "0";
+    } else {
+      newOutput = output;
+    }
+    _setOutput(newOutput);
+    props.onChange(newOutput);
+  };
+
+  const onClickButtonWrapper = (e: React.MouseEvent) => {
+    const target = e.target as HTMLElement;
+    let text = target.textContent;
+    if (!text) {
+      text = target.className;
+    }
+    if (text === "check") {
+      if (props.onOk) {
+        props.onOk();
+      }
+      return;
+    }
+    // console.log(text);
+    // console.log(document.body.querySelector("footer > div.keyboard"));
+    if (
+      "0123456789."
+        .split("")
+        .concat(["+", "-", "backspace", "清空"])
+        .indexOf(text) >= 0
+    ) {
+      const lastOutput = generateOutput(text, output);
+      console.log(lastOutput);
+      setOutput(lastOutput);
+    }
+  };
+
   return (
-    <div className="keyboard" onClick={generateOutput}>
+    <div className="keyboard" onClick={onClickButtonWrapper}>
       <button>1</button>
       <button>2</button>
       <button>3</button>
-      <button className="date">今天</button>
+      <button className="clear">清空</button>
       <button>4</button>
       <button>5</button>
       <button>6</button>

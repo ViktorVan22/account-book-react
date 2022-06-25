@@ -7,7 +7,7 @@ import { TopSection } from "./money/TopSection";
 
 const defaultFormData = {
   note: "",
-  amount: 0,
+  amount: "0",
 };
 
 const Money = () => {
@@ -32,9 +32,11 @@ const Money = () => {
           note={formData.note}
           onNoteChange={note => onChange({ note })}
           amount={formData.amount}
-          onAmountChange={amount => onChange({ amount })}
         />
-        <KeyboardSection />
+        <KeyboardSection
+          amount={formData.amount}
+          onChange={amount => onChange({ amount })}
+        />
       </footer>
     </div>
   );

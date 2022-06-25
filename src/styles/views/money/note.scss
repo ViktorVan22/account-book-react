@@ -1,5 +1,5 @@
 footer.moneyFooter > div.note {
-  $writeNoteWidth: 70%;
+  $writeNoteWidth: 50%;
   border: 1px solid black;
   margin: 8px 12px;
   display: flex;
@@ -11,7 +11,11 @@ footer.moneyFooter > div.note {
   > input.writeNote {
     width: $writeNoteWidth;
   }
-  > input.amount {
+  > div.amount {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     width: calc(100% - $writeNoteWidth);
   }
 }
