@@ -9,14 +9,14 @@ try {
   console.log(error);
 }
 
-interface Props {
+interface Props extends React.SVGAttributes<SVGElement> {
   name: string;
 }
 
-const Icon: React.FunctionComponent<Props> = props => {
+const Icon: React.FunctionComponent<Props> = ({ name, ...restProps }) => {
   return (
     <svg className="icon">
-      <use xlinkHref={"#" + props.name} />
+      <use xlinkHref={"#" + name} {...restProps} />
     </svg>
   );
 };
