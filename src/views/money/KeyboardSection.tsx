@@ -44,9 +44,7 @@ const KeyboardSection: React.FunctionComponent<Props> = props => {
         .concat(["+", "-", "backspace", "清空"])
         .indexOf(text) >= 0
     ) {
-      const lastOutput = generateOutput(text, output);
-      console.log(lastOutput);
-      setOutput(lastOutput);
+      setOutput(generateOutput(text, output));
     }
   };
 
