@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { DialogContainer } from "./Dialog";
 import { Icon } from "./Icon";
 
 interface Props {
@@ -12,7 +14,7 @@ const Label: React.FunctionComponent<Props> = props => {
         <Icon name={props.iconName} />
         <span>{props.labelName}</span>
       </div>
-      <Icon name="options" />
+      <DialogContainer />
     </li>
   );
 };
