@@ -1,0 +1,24 @@
+div.labelDialog {
+  border: 1px solid fade-out($color: black, $amount: 0.5);
+  position: fixed;
+  background: white;
+  width: 4em;
+  // height: 3em;
+  border-radius: 10px;
+  // 弹窗显示位置
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  > span {
+    line-height: 1.3;
+    padding: 3px;
+  }
+}
+
+div.labelDialogMask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}

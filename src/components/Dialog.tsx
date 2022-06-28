@@ -1,16 +1,30 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Icon } from "./Icon";
+import "styles/components/dialog.scss";
 
 type dialogProps = {
   visible: boolean;
 };
 
 const Dialog: React.FunctionComponent<dialogProps> = props => {
+  const editLabel = () => {
+    window.alert("编辑标签？");
+  };
+  const deleteLabel = () => {
+    window.alert("删除标签？");
+  };
   return props.visible ? (
-    <div>
-      <span>编辑</span>
-      <span>删除</span>
-    </div>
+    <Fragment>
+      <div className="labelDialogMask"></div>
+      <div className="labelDialog">
+        <span className="editLabel" onClick={editLabel}>
+          编辑
+        </span>
+        <span className="deleteLabel" onClick={deleteLabel}>
+          删除
+        </span>
+      </div>
+    </Fragment>
   ) : null;
 };
 
