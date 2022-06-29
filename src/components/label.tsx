@@ -20,7 +20,7 @@ const Label: React.FunctionComponent<Props> = props => {
       </div>
       <Options
         onDeleteItem={() => props.deleteItem(props.id)}
-        onEditItem={props.editItem}
+        onEditItem={() => props.editItem()}
       />
     </li>
   );
