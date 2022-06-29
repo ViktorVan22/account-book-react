@@ -24,8 +24,19 @@ const useLabels = () => {
   >([]);
   useEffect(() => {
     console.log("挂载数据");
-    setLabels(defaultLabels);
-  }, []); // 挂载标签数据
+    let localLabels = JSON.parse(
+      window.localStorage.getItem("defaultLabels") || "[]"
+    ); // 从localStorage获取数据
+    console.log(localLabels.length);
+    if (localLabels.length === 0) {
+      // 如果localStorage里没有标签数据
+      localLabels = window.localStorage.setItem(
+        "defaultLabels",
+        JSON.stringify(defaultLabels)
+      );
+    }
+    setLabels(localLabels);
+  }, []); // 从localStorage获取标签数据并挂载
 
   const counter = useRef(0);
   useEffect(() => {
@@ -34,17 +45,20 @@ const useLabels = () => {
   useEffect(() => {
     if (counter.current > 1) {
       console.log("我被调用了");
+      window.localStorage.setItem("defaultLabels", JSON.stringify(labels));
     }
-  }, [labels]); // labels数据发生变化时调用
+  }, [labels]); // labels数据发生变化时调用: 把更新的labels数据存到localStorage
   const editLabel = () => {
-    console.log(`edit label`);
+    const content = window.prompt("请输入标签名");
+    if (content !== null && content !== "") {
+      // setLabels(labels.map(label=> label.id ===))
+      console.log(content);
+    }
   };
   const deleteLabel = (id: number) => {
     console.log("delete label");
-    // console.log(labels.filter(label => label.id !== id));
     setLabels(labels.filter(label => label.id !== id));
   };
-  console.log(labels);
   return { labels, editLabel, deleteLabel };
 };
 
