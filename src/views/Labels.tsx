@@ -1,9 +1,18 @@
 import { Icon } from "components/Icon";
 import { Label } from "components/Label";
-import { CreateId } from "methods/createId";
-import { useEffect, useState } from "react";
+import { useUpdate } from "hooks/useUpdate";
+import { createId } from "methods/createId";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "styles/views/labels.scss";
+
+const defaultLabels = [
+  { id: createId(), iconName: "dining", labelName: "餐饮" },
+  { id: createId(), iconName: "hangout", labelName: "出行" },
+  { id: createId(), iconName: "motel", labelName: "住宿" },
+  { id: createId(), iconName: "shopping", labelName: "购物" },
+  { id: createId(), iconName: "snack", labelName: "零食" },
+];
 
 const useLabels = () => {
   const [labels, setLabels] = useState<
@@ -14,28 +23,33 @@ const useLabels = () => {
     }[]
   >([]);
   useEffect(() => {
-    let localLabels = JSON.parse(
-      window.localStorage.getItem("labelList") || "[]"
-    );
-    if (localLabels.length === 0) {
-      localLabels = [
-        { id: CreateId(), iconName: "dining", labelName: "餐饮" },
-        { id: CreateId(), iconName: "hangout", labelName: "出行" },
-        { id: CreateId(), iconName: "motel", labelName: "住宿" },
-        { id: CreateId(), iconName: "shopping", labelName: "购物" },
-        { id: CreateId(), iconName: "snack", labelName: "零食" },
-      ];
-      window.localStorage.setItem("localLabels", JSON.stringify(localLabels));
-      setLabels(localLabels);
-    }
-  }, []); // 首次挂载时填充标签数据
+    console.log("挂载数据");
+    setLabels(defaultLabels);
+  }, []); // 挂载标签数据
 
-  return { labels };
+  const counter = useRef(0);
+  useEffect(() => {
+    counter.current += 1;
+  });
+  useEffect(() => {
+    if (counter.current > 1) {
+      console.log("我被调用了");
+    }
+  }, [labels]); // labels数据发生变化时调用
+  const editLabel = () => {
+    console.log(`edit label`);
+  };
+  const deleteLabel = (id: number) => {
+    console.log("delete label");
+    // console.log(labels.filter(label => label.id !== id));
+    setLabels(labels.filter(label => label.id !== id));
+  };
+  console.log(labels);
+  return { labels, editLabel, deleteLabel };
 };
 
 const Labels = () => {
-  const { labels } = useLabels();
-  // console.log(labels);
+  const { labels, editLabel, deleteLabel } = useLabels();
   const navigate = useNavigate();
   const onAddTag = () => {
     navigate("/newTag");
@@ -59,19 +73,17 @@ const Labels = () => {
           {labels.map(label => (
             <Label
               key={label.id}
+              id={label.id}
               iconName={label.iconName}
               labelName={label.labelName}
+              deleteItem={deleteLabel}
+              editItem={editLabel}
             />
           ))}
-          {/* <Label iconName="dining" labelName="餐饮" />
-          <Label iconName="hangout" labelName="出行" />
-          <Label iconName="motel" labelName="住宿" />
-          <Label iconName="shopping" labelName="购物" />
-          <Label iconName="snack" labelName="零食" /> */}
         </ul>
       </main>
     </div>
   );
 };
-
+export { useLabels };
 export { Labels };

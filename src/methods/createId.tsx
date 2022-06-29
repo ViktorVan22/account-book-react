@@ -1,6 +1,7 @@
-let id = 0;
-const CreateId = () => {
+let id = parseInt(window.localStorage.getItem("id") || "0");
+const createId = () => {
   id += 1;
+  window.localStorage.setItem("id", JSON.stringify(id));
   return id;
 };
-export { CreateId };
+export { createId };
