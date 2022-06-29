@@ -1,31 +1,15 @@
 import { Tag } from "components/Tag";
 import "styles/views/money/tags.scss";
+import { useLabels } from "views/Labels";
 
 const TagsSection = () => {
+  const { labels } = useLabels();
+
   return (
     <ul className="tags">
-      <Tag name="dining" tagName="餐饮" />
-      <Tag name="hangout" tagName="出行" />
-      <Tag name="motel" tagName="住宿" />
-      <Tag name="shopping" tagName="购物" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
-      <Tag name="snack" tagName="零食" />
+      {labels.map(label => (
+        <Tag key={label.id} name={label.iconName} tagName={label.labelName} />
+      ))}
     </ul>
   );
 };

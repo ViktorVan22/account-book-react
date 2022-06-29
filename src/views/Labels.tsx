@@ -48,6 +48,7 @@ const useLabels = () => {
       window.localStorage.setItem("defaultLabels", JSON.stringify(labels));
     }
   }, [labels]); // labels数据发生变化时调用: 把更新的labels数据存到localStorage
+
   const editLabel = () => {
     const content = window.prompt("请输入标签名");
     if (content !== null && content !== "") {

@@ -14,7 +14,7 @@ div.newTag-layout > main.newTagMain {
     justify-content: center;
     align-items: center;
     margin-top: 15px;
-    > span {
+    > a {
       border: 1px solid black;
       width: 25%;
       text-align: center;
@@ -25,6 +25,9 @@ div.newTag-layout > main.newTagMain {
       }
       &:last-child {
         border-radius: 0 10px 10px 0;
+      }
+      &.active {
+        background: white;
       }
     }
   }

@@ -3,7 +3,7 @@ import { Home } from "views/Home";
 import { Money } from "views/Money";
 import { Chart } from "views/Chart";
 import { Labels } from "views/Labels";
-import { NewTag } from "views/NewTag";
+import { IncomeIcons, NewTag, OutcomeIcons } from "views/NewTag";
 import { NoMatch } from "views/NoMatch";
 
 function App() {
@@ -15,7 +15,12 @@ function App() {
         <Route path="/money" element={<Money />} />
         <Route path="/chart" element={<Chart />} />
         <Route path="/labels" element={<Labels />} />
-        <Route path="/newTag" element={<NewTag />} />
+        <Route path="/newTag" element={<NewTag />}>
+          <Route index element={<OutcomeIcons />} />
+          <Route path="outcome" element={<OutcomeIcons />} />
+          <Route path="income" element={<IncomeIcons />} />
+          <Route path="*" element={<NoMatch />} />
+        </Route>
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </BrowserRouter>

@@ -4,7 +4,7 @@ import { KeyboardSection } from "./money/KeyboardSection";
 import { NoteSection } from "./money/NoteSection";
 import { TagsSection } from "./money/TagsSection";
 import { TopSection } from "./money/TopSection";
-
+import "styles/views/money/money.scss";
 const defaultFormData = {
   note: "",
   amount: "0",

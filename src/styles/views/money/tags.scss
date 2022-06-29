@@ -2,16 +2,21 @@ main.moneyMain > ul.tags {
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
+  min-height: 42vh;
   max-height: 42vh;
+  > li {
+    width: 25%;
+    min-height: 85px;
+    margin: 8px 0;
+  }
+}
+
+main.moneyMain > ul.tags {
   overflow: hidden;
   overflow-y: scroll;
   overflow-x: hidden;
   &::-webkit-scrollbar {
     display: none;
-  }
-  > li {
-    width: 25%;
-    height: 85px;
-    margin: 8px 0;
   }
 }
