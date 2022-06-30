@@ -43,3 +43,13 @@ main.moneyMain > ul.tags {
     display: none;
   }
 }
+main.moneyMain > ul.tags {
+  > li {
+    & * {
+      pointer-events: none;
+    }
+    &.selected {
+      background: white;
+    }
+  }
+}

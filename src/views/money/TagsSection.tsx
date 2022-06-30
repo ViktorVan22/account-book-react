@@ -9,8 +9,25 @@ type LabelListProps = {
 };
 const LabelList: React.FunctionComponent<LabelListProps> = props => {
   const labels = props.labels;
+  let tagElement;
+  const clickIconWrapper = (e: React.MouseEvent) => {
+    const currentTarget = e.currentTarget as HTMLElement;
+    const target = e.target as HTMLElement;
+    const children = currentTarget.childNodes;
+    // console.log(target.children.item(0)); // 本质是返回一个Icon组件
+    tagElement = target.children;
+    console.log(tagElement);
+    // 点击一个li，该li添加名为“selected”的className
+    // 同时清空其他li上的classList
+    target.classList.add("selected");
+    children.forEach(el => {
+      if (el !== target) {
+        (el as HTMLElement).classList.remove("selected");
+      }
+    });
+  };
   return (
-    <ul className="tags">
+    <ul className="tags" onClick={clickIconWrapper}>
       {labels.map(label => (
         <Tag key={label.id} name={label.iconName} tagName={label.labelName} />
       ))}
