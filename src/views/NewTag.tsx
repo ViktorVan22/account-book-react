@@ -25,13 +25,28 @@ type IconListProps = {
 const IconList: React.FunctionComponent<IconListProps> = props => {
   const iconNameList = availableIcons[props.category];
 
+  const clickIconWrapper = (e: React.MouseEvent) => {
+    const currentTarget = e.currentTarget as HTMLElement;
+    const target = e.target as HTMLElement;
+    const children = currentTarget.childNodes;
+    console.log(target.children.item(0)); // 本质是返回一个Icon组件
+    // 点击一个li，该li添加名为“selected”的className
+    // 同时清空其他li上的classList
+    target.classList.add("selected");
+    children.forEach(el => {
+      if (el !== target) {
+        (el as HTMLElement).classList.remove("selected");
+      }
+    });
+  };
+
   return (
     <Fragment>
       <div className="editTag">
         <div className="chosenIcon">选择的图标</div>
         <input type="text" placeholder="输入标签名称" />
       </div>
-      <ul className="availableIcons">
+      <ul className="availableIcons" onClick={clickIconWrapper}>
         {iconNameList.map(iconName => (
           <li key={iconName}>
             <Icon name={iconName} />
