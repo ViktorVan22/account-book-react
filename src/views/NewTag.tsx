@@ -1,8 +1,7 @@
 import { Icon } from "components/Icon";
-import { Fragment, useEffect, useState } from "react";
-import { NavLink, Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import React, { Fragment, useState } from "react";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import "styles/views/newTag.scss";
-import { NoMatch } from "./NoMatch";
 
 const outcome = [
   "gift",
@@ -25,6 +24,7 @@ type IconListProps = {
 
 const IconList: React.FunctionComponent<IconListProps> = props => {
   const iconNameList = availableIcons[props.category];
+
   return (
     <Fragment>
       <div className="editTag">
@@ -44,7 +44,6 @@ const IconList: React.FunctionComponent<IconListProps> = props => {
 
 const NewTag = () => {
   const navigate = useNavigate();
-  const categoryMap = { "-": "支出", "+": "收入" };
   return (
     <div className="newTag-layout">
       <header className="newTagHeader">

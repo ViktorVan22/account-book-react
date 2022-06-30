@@ -64,3 +64,11 @@ ul.availableIcons {
     display: none;
   }
 }
+
+ul.availableIcons {
+  > li {
+    & * {
+      pointer-events: none;
+    }
+  }
+}

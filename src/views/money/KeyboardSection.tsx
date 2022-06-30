@@ -36,8 +36,6 @@ const KeyboardSection: React.FunctionComponent<Props> = props => {
       }
       return;
     }
-    // console.log(text);
-    // console.log(document.body.querySelector("footer > div.keyboard"));
     if (
       "0123456789."
         .split("")
