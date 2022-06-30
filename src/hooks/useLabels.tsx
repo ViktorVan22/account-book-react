@@ -52,16 +52,71 @@ const useLabels = () => {
     window.localStorage.setItem("defaultLabels", JSON.stringify(labels));
   }, [labels]); // labels数据发生变化时调用: 把更新的labels数据存到localStorage
 
-  const editLabel = () => {
+  const findCategory = (id: number) => {
+    // 根据提供的id找到标签所属的数组的key: "outcome" | "income"
+    const key = labels.outcome.filter(label => label.id === id);
+    if (key.length === 0) {
+      return "income";
+    }
+    return "outcome";
+  };
+
+  const findLabel = (id: number) => {
+    // 根据提供的id获取对应的label对象, 返回一个含有category键值对的新对象
+    const category = findCategory(id);
+    let targetLabel;
+    if (category === "outcome") {
+      [targetLabel] = labels.outcome.filter(label => label.id === id);
+    } else {
+      [targetLabel] = labels.income.filter(label => label.id === id);
+    }
+    return { ...targetLabel, category };
+  };
+
+  const editLabel = (id: number) => {
+    const targetLabel = findLabel(id);
+    console.log("Target Label: ", targetLabel);
+    let updatedLabels, filteredLabels;
     const content = window.prompt("请输入标签名");
     if (content !== null && content !== "") {
-      // setLabels(labels.map(label=> label.id ===))
-      console.log(content);
+      targetLabel.labelName = content;
     }
+
+    if (targetLabel.category === "outcome") {
+      console.log("修改支出类标签");
+      filteredLabels = labels.outcome.filter(label => label.id !== id);
+      updatedLabels = [...filteredLabels, targetLabel];
+      setLabels({
+        outcome: updatedLabels,
+        income: labels.income,
+      });
+    } else {
+      console.log("修改收入类标签");
+      filteredLabels = labels.income.filter(label => label.id !== id);
+      updatedLabels = [...filteredLabels, targetLabel];
+      setLabels({
+        outcome: labels.outcome,
+        income: updatedLabels,
+      });
+    }
+    // console.log("updatedLabels: ", updatedLabels);
   };
+
   const deleteLabel = (id: number) => {
-    console.log("delete label");
-    // setLabels(labels.filter(label => label.id !== id));
+    console.log("删除标签， 标签id: ", id);
+    const category = findCategory(id);
+    console.log("标签所属类别: ", category);
+    if (category === "outcome") {
+      setLabels({
+        outcome: labels.outcome.filter(label => label.id !== id),
+        income: labels.income,
+      });
+    } else {
+      setLabels({
+        outcome: labels.outcome,
+        income: labels.income.filter(label => label.id !== id),
+      });
+    }
   };
   return { labels, editLabel, deleteLabel };
 };

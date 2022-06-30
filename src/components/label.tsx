@@ -8,7 +8,7 @@ interface Props {
   iconName: string;
   labelName: string;
   deleteItem: (id: number) => void;
-  editItem: () => void;
+  editItem: (id: number) => void;
 }
 
 const Label: React.FunctionComponent<Props> = props => {
@@ -20,7 +20,7 @@ const Label: React.FunctionComponent<Props> = props => {
       </div>
       <Options
         onDeleteItem={() => props.deleteItem(props.id)}
-        onEditItem={() => props.editItem()}
+        onEditItem={() => props.editItem(props.id)}
       />
     </li>
   );
