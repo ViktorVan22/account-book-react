@@ -2,23 +2,12 @@ div.labels-layout > header.labelsHeader {
   margin: 8px 0;
   display: flex;
   justify-content: space-between;
-  > div.option {
+  > div.title {
     width: 40%;
+    font-size: 20px;
     display: flex;
-    > span {
-      border: 1px solid black;
-      width: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      &:first-child {
-        border-radius: 20px 0 0 20px;
-        border-right: none;
-      }
-      &:last-child {
-        border-radius: 0 20px 20px 0;
-      }
-    }
+    justify-content: center;
+    align-items: center;
   }
 }
 

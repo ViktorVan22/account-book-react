@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { CategorySection } from "./money/CategorySection";
 import { KeyboardSection } from "./money/KeyboardSection";
 import { NoteSection } from "./money/NoteSection";
 import { TagsSection } from "./money/TagsSection";
@@ -24,7 +23,6 @@ const Money = () => {
         <TopSection />
       </header>
       <main className="moneyMain">
-        <CategorySection />
         <TagsSection />
       </main>
       <footer className="moneyFooter">

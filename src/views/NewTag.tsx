@@ -1,6 +1,6 @@
 import { Icon } from "components/Icon";
 import { Fragment, useEffect, useState } from "react";
-import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, Route, Routes, useNavigate } from "react-router-dom";
 import "styles/views/newTag.scss";
 import { NoMatch } from "./NoMatch";
 
@@ -44,10 +44,7 @@ const IconList: React.FunctionComponent<IconListProps> = props => {
 
 const NewTag = () => {
   const navigate = useNavigate();
-  const [category, setCategory] = useState<"-" | "+">("-");
   const categoryMap = { "-": "支出", "+": "收入" };
-  type Keys = keyof typeof categoryMap;
-  const [categoryList] = useState<Keys[]>(["-", "+"]);
   return (
     <div className="newTag-layout">
       <header className="newTagHeader">
@@ -65,12 +62,7 @@ const NewTag = () => {
           <NavLink to="/newTag/outcome">支出</NavLink>
           <NavLink to="/newTag/income">收入</NavLink>
         </div>
-        <Routes>
-          <Route index element={<OutcomeIcons />} />
-          <Route path="outcome" element={<OutcomeIcons />} />
-          <Route path="income" element={<IncomeIcons />} />
-          <Route path="*" element={<NoMatch />} />
-        </Routes>
+        <Outlet />
       </main>
     </div>
   );

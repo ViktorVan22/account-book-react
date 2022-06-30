@@ -5,6 +5,7 @@ import { Chart } from "views/Chart";
 import { Labels } from "views/Labels";
 import { IncomeIcons, NewTag, OutcomeIcons } from "views/NewTag";
 import { NoMatch } from "views/NoMatch";
+import { IncomeLabels, OutcomeLabels } from "views/money/TagsSection";
 
 function App() {
   return (
@@ -12,7 +13,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/money" element={<Money />} />
+        <Route path="/money" element={<Money />}>
+          <Route index element={<OutcomeLabels />} />
+          <Route path="outcome" element={<OutcomeLabels />} />
+          <Route path="income" element={<IncomeLabels />} />
+          <Route path="*" element={<NoMatch />} />
+        </Route>
         <Route path="/chart" element={<Chart />} />
         <Route path="/labels" element={<Labels />} />
         <Route path="/newTag" element={<NewTag />}>
